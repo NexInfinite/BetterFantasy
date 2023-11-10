@@ -1,6 +1,8 @@
+use askama::Template;
 use axum::{
-    response::Html,
+    response::{Html, IntoResponse, Response},
     routing::get,
+    http::StatusCode,
     Router
 };
 use std::net::SocketAddr;
@@ -18,6 +20,27 @@ async fn main() {
         .unwrap();
 }
 
-async fn root() -> Html<&'static str> {
-    Html("<h1>Hello, World!!</h1>")
+async fn root() -> impl IntoResponse {
+    let template = IndexTemplate {};
+    HtmlTemplate(template)
+}
+
+#[derive(Template)]
+#[template(path = "index.html")]
+struct IndexTemplate {}
+
+struct HtmlTemplate<T>(T);
+impl<T> IntoResponse for HtmlTemplate<T>
+where 
+    T: Template,
+{
+    fn into_response(self) -> Response {
+        match self.0.render() {
+            Ok(html) => Html(html).into_response(),
+            Err(err) => (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                format!("Failed to render template! Sorry bruv ({})", err),
+            ).into_response()
+        }
+    }
 }
