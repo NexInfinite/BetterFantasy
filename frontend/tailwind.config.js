@@ -7,13 +7,14 @@ module.exports = {
 
   ],
   theme: {
-    colors: {
-      'red': '#FF1801',
-      'dark-text': '#170908',
-      'light-text': '#BBE4E8',
-      'loading-bg': '#D9D9D9'
+    extend: {
+      colors: {
+        'f1-red': '#FF1801',
+        'dark-text': '#170908',
+        'light-text': '#BBE4E8',
+        'loading-bg': '#D9D9D9'
+      }
     },
-    extend: {},
   },
   plugins: [],
 }
