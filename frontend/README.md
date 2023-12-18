@@ -1,2 +1,3 @@
 # Frontend
-This will be written in JavaScript using some framework, honestly not picked it yet icl
+
+Frontend is written in nextjs, using chakra for ui components, and running with yarn.

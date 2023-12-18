@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #FFFFFF;
+}
+
+@font-face {
+  font-family: "f1-regular";
+  src: url("../public/fonts/Formula1-Regular.otf");
+}
+@font-face {
+  font-family: "f1-bold";
+  src: url("../public/fonts/Formula1-Bold.otf");
+}
+@font-face {
+  font-family: "f1-wide";
+  src: url("../public/fonts/Formula1-Wide.otf");
+}
