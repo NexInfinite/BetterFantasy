@@ -1,7 +1,5 @@
-import NavBar from "./navbar"
-
 export default function Home() {
   return (
-    <NavBar></NavBar>
+    <h1>Hello</h1>
   )
 }
