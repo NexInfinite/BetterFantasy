@@ -6,7 +6,7 @@ import { Bars3Icon, BellIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/ou
 const navigation = [
   { name: 'Home', href: '/'},
   { name: 'Leagues', href: '/leagues'},
-  { name: 'About', href: '/about'},
+  { name: 'Teams', href: '/teams'},
 ]
 
 function classNames(...classes) {
