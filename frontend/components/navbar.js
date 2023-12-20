@@ -15,7 +15,7 @@ function classNames(...classes) {
 
 export default function NavBar() {
   return (
-    <div className="pb-8 font-f1-regular">
+    <div className="pb-12 font-f1-regular">
       <Disclosure as="nav" className="bg-f1-red drop-shadow-md">
         {({ open }) => (
           <>
@@ -53,6 +53,7 @@ export default function NavBar() {
                             'rounded-md px-3 py-2 text-sm font-medium'
                           )}
                           aria-current={usePathname() == item.href ? 'page' : undefined}
+                          scroll={false}
                         >
                           {item.name}
                         </a>

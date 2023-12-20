@@ -4,7 +4,7 @@ export default function Footer() {
       <div class="w-screen mx-0 max-w-screen-xl p-4 flex flex-wrap items-center justify-stretch lg:justify-between">
         <span class="text-sm text-gray-400 w-full lg:w-max text-center">©2023 <a href="https://julians.work" target="_blank" class="hover:underline">NexInfinite</a>. All Rights Reserved.
         </span>
-        <ul class="flex flex-wrap justify-center w-full lg:w-max lg:items-center text-sm font-medium text-gray-400 mt-0">
+        <ul className="flex flex-wrap justify-center w-full lg:w-max lg:items-center text-sm font-medium text-gray-400 mt-0">
           <li>
             <a href="/about" className="hover:underline me-4 md:me-6">About</a>
           </li>
