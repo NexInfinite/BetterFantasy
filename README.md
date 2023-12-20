@@ -2,6 +2,9 @@
 A better version of the F1 fantasy game (hopefully)
 
 # Development TODOs
+
+- [ ] Transitions, using states not the other thing
+
 ## Navbar
 ```js
 // TODO: Allow user to add profile pictures?
