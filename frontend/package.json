@@ -15,10 +15,13 @@
     "@emotion/styled": "^11.11.0",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@mantine/core": "^7.3.2",
+    "@mantine/hooks": "^7.3.2",
     "framer-motion": "^10.16.16",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-use": "^17.4.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",

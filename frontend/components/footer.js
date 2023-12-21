@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
-    <footer class="w-full fixed inset-x-0 bottom-0 bg-gray-800 rounded-t-lg flex justify-center">
-      <div class="w-screen mx-0 max-w-screen-xl p-4 flex flex-wrap items-center justify-stretch lg:justify-between">
-        <span class="text-sm text-gray-400 w-full lg:w-max text-center">©2023 <a href="https://julians.work" target="_blank" class="hover:underline">NexInfinite</a>. All Rights Reserved.
+    <footer className="w-full fixed inset-x-0 bottom-0 bg-gray-800 rounded-t-lg flex justify-center">
+      <div className="w-screen mx-0 max-w-screen-xl p-4 flex flex-wrap items-center justify-stretch lg:justify-between">
+        <span className="text-sm text-gray-400 w-full lg:w-max text-center">©2023 <a href="https://julians.work" target="_blank" className="hover:underline">NexInfinite</a>. All Rights Reserved.
         </span>
         <ul className="flex flex-wrap justify-center w-full lg:w-max lg:items-center text-sm font-medium text-gray-400 mt-0">
           <li>
