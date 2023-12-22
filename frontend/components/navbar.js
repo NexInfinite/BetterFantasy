@@ -20,7 +20,7 @@ export function pageHook() {
 
   function changePage(newPage, newPageName) {
     if (page != newPage){
-      console.log("Changing page to", newPageName);
+      console.log("Changing page to:", newPageName);
       setPage(newPage)
       setPageName(newPageName)
     }
