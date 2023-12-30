@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import Head from "next/head"
 import { AnimatePresence } from 'framer-motion'
 import "../styles/globals.css";
 
@@ -8,15 +9,18 @@ import NavBar from "../components/navbar";
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
-        <NavBar />
-        <AnimatePresence
-          mode="wait"
-          initial={false}
-          onExitComplete={() => window.scrollTo(0, 0)}
-        >
-          <Component {...pageProps} />
-        </AnimatePresence>
-        <Footer />
+      <Head>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      </Head>
+      <NavBar />
+      <AnimatePresence
+        mode="wait"
+        initial={false}
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        <Component {...pageProps} />
+      </AnimatePresence>
+      <Footer />
     </>
   )
 }

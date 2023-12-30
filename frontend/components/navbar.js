@@ -2,7 +2,8 @@ import { Fragment } from 'react'
 import { usePathname } from 'next/navigation'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
+import Link from "next/link"
+import Head from "next/head"
 
 const navigation = [
   { name: 'Home', href: '/'},
@@ -47,6 +48,7 @@ export default function NavBar() {
                     <div className="flex space-x-4">
                       {navigation.map((item) => (
                         <Link 
+                          key={item.name}
                           href={item.href} 
                           scroll={false}
                           className={classNames(
