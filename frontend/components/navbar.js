@@ -3,7 +3,6 @@ import { usePathname } from 'next/navigation'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/outline'
 import Link from "next/link"
-import Head from "next/head"
 
 const navigation = [
   { name: 'Home', href: '/'},
