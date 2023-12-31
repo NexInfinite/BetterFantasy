@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 # Remove db for security
-db/
+database/
