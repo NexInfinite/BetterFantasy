@@ -17,7 +17,6 @@ const Layout = ({ children, title, description }) => (
       exit="exit"
       variants={variants}
       transition={{ type: "tween" }}
-      className="text-center place-content-center"
     >
       {children}
     </motion.main>
