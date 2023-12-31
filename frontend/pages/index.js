@@ -3,13 +3,26 @@ import Layout from "@/components/layout"
 export default function Home() {
   return (
     <Layout title="Home" description="Better F1 Fantasy Home!">
-      <div id="page-heading">
+      <div id="page-heading" className="text-center">
         <h1 className="text-4xl text-f1-red font-f1-bold sm:text-6xl">F1 FANTASY</h1>
         <h2 className="text-m text-dark-text font-f1-regular sm:text-xl">An Unofficial Fantasy League</h2>
       </div>
+
+      {/* How It Works */}
       <div id="how-it-works" className="pt-4 sm:pt-12 px-6 grid grid-cols-1 justify-items-center">
-        <h2 className="text-2xl text-dark-text font-f1-bold sm:text-3xl">HOW IT WORKS</h2>
-        <div id="how-it-works-grid" className="pt-6 grid grid-cols-1 md:grid-cols-3 gap-y-3 gap-x-10 max-w-lg md:max-w-3xl lg:max-w-4xl xl:max-w-7xl v-full">
+        {/* Smaller Screen Card Title */}
+        <h2 className="lg:hidden text-2xl text-dark-text font-f1-bold sm:text-3xl text-center">HOW IT WORKS</h2>
+
+        <div id="how-it-works-grid" className="pt-6 grid grid-cols-1 md:grid-cols-3 gap-y-3 gap-x-10 max-w-lg md:max-w-3xl lg:max-w-4xl xl:max-w-7xl">
+          {/* Card Title */}
+          <div className="hidden lg:block col-span-1 md:col-span-3">
+            <div className="flex flex-auto flex-row items-center">
+              <h2 className="text-2xl text-dark-text font-f1-bold sm:text-3xl whitespace-nowrap mr-4">HOW IT WORKS</h2>
+              <div className="mt-2 h-2 w-full bg-slate-200 rounded-lg"></div>
+            </div>
+          </div>
+
+          {/* Card Content */}
           <div className="p-4 bg-slate-100 rounded-lg">
             <h3 className="text-xl text-f1-red font-f1-bold sm:text-4xl text-left">1. </h3>
             <h4 className="text-m text-dark-text font-f1-bold sm:text-2xl text-left">Create Your Free Account</h4>
