@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Layout from "@/components/layout"
 
 export default function Home() {
@@ -31,7 +32,7 @@ export default function Home() {
           <div className="p-4 bg-slate-100 rounded-lg">
             <h3 className="text-xl text-f1-red font-f1-bold sm:text-4xl text-left">2. </h3>
             <h4 className="text-m text-dark-text font-f1-bold sm:text-2xl text-left">Join or Make a League</h4>
-            <p className="text-xs text-dark-text font-f1-regular sm:text-s text-left">Once your account has been created, join or make a league by pressing the "Leagues" link on the right of the navbar</p>
+            <p className="text-xs text-dark-text font-f1-regular sm:text-s text-left">Once your account has been created, join or make a league by pressing the "<Link href="/leagues" scroll={false} className="transition-color ease-out underline underline-offset-2 hover:text-f1-red hover:bg-red-100">Leagues</Link>" link on the right of the navbar</p>
           </div>
           <div className="p-4 bg-slate-100 rounded-lg">
             <h3 className="text-xl text-f1-red font-f1-bold sm:text-4xl text-left">3. </h3>
@@ -41,7 +42,7 @@ export default function Home() {
           <div className="p-4 bg-slate-100 rounded-lg">
             <h3 className="text-xl text-f1-red font-f1-bold sm:text-4xl text-left">4. </h3>
             <h4 className="text-m text-dark-text font-f1-bold sm:text-2xl text-left">Create Your Team</h4>
-            <p className="text-xs text-dark-text font-f1-regular sm:text-s text-left">Once your league has been customized, you can now create your team! Head to the "Teams" section on the navbar and follow the steps show</p>
+            <p className="text-xs text-dark-text font-f1-regular sm:text-s text-left">Once your league has been customized, you can now create your team! Head to the "<Link href="/teams" scroll={false} className="transition-color ease-out underline underline-offset-2 hover:text-f1-red hover:bg-red-100">Teams</Link>" section on the navbar and follow the steps show</p>
           </div>
           <div className="p-4 bg-slate-100 rounded-lg">
             <h3 className="text-xl text-f1-red font-f1-bold sm:text-4xl text-left">5. </h3>
