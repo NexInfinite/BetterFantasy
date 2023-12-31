@@ -16,7 +16,7 @@ function classNames(...classes) {
 
 export default function NavBar() {
   return (
-    <div className="pb-8 font-f1-regular">
+    <div className="pb-6 sm:pb-12 font-f1-regular">
       <Disclosure as="nav" className="bg-f1-red drop-shadow-md">
         {({ open }) => (
           <>

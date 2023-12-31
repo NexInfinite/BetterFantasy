@@ -20,6 +20,7 @@ export default function MyApp({ Component, pageProps }) {
       >
         <Component {...pageProps} />
       </AnimatePresence>
+      <div className="mt-32"></div>
       <Footer />
     </>
   )
