@@ -1,11 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "f1.css";
+
+@layer base {
+  html {
+    --color-main: #01ff6b;
+    --color-dark-text: #170908;
+    --color-light-text: #BBE4E8;
+    --color-loading-bg: #D9D9D9;
+  }
+}
 
 body {
   scroll-behavior: smooth;
   background-color: #FFFFFF;
 }
+
 
 @font-face {
   font-family: "f1-regular";

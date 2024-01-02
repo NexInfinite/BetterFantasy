@@ -1,8 +1,9 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/outline'
 import { FaChevronDown } from "react-icons/fa";
+import { changeTheme } from "@/utils/helper";
 import Link from "next/link"
 
 const navigation = {
@@ -33,7 +34,7 @@ function getPathRoot() {
 
 export default function NavBar() {
   return (
-    <div className="pb-6 sm:pb-12 font-theme-regular">
+    <div className="pb-6 z-50 sm:pb-12 font-theme-regular">
       <Disclosure as="nav" className="bg-main drop-shadow-md">
         {({ open }) => (
           <>
@@ -94,21 +95,21 @@ export default function NavBar() {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="absolute right-0 z-40 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
-                          <a href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                          <Link href="/" className="block z-50 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
                             Home
-                          </a>
+                          </Link>
                         </Menu.Item>
                         <Menu.Item>
-                          <a href="/f1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                          <Link href="/f1" className="block z-50 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("f1")}>
                             F1
-                          </a>
+                          </Link>
                         </Menu.Item>
                         <Menu.Item>
-                          <a href="/valorant" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                          <Link href="/valorant" className="z-50 block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("valorant")}>
                             Valorant
-                          </a>
+                          </Link>
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>

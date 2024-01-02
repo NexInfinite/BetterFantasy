@@ -9,10 +9,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'main': '#FF1801',
-        'dark-text': '#170908',
-        'light-text': '#BBE4E8',
-        'loading-bg': '#D9D9D9'
+        'main': 'var(--color-main)',
+        'dark-text': 'var(--color-dark-text)',
+        'light-text': 'var(--color-light-text)',
+        'loading-bg': 'var(--color-loading-bg)'
       },
       fontFamily: {
         "theme-regular": ["f1-regular", "monospace"],
