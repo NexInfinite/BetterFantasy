@@ -33,8 +33,8 @@ function getPathRoot() {
 
 export default function NavBar() {
   return (
-    <div className="pb-6 sm:pb-12 font-f1-regular">
-      <Disclosure as="nav" className="bg-f1-red drop-shadow-md">
+    <div className="pb-6 sm:pb-12 font-theme-regular">
+      <Disclosure as="nav" className="bg-main drop-shadow-md">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

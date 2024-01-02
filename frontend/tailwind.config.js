@@ -9,15 +9,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'f1-red': '#FF1801',
+        'main': '#FF1801',
         'dark-text': '#170908',
         'light-text': '#BBE4E8',
         'loading-bg': '#D9D9D9'
       },
       fontFamily: {
-        "f1-regular": ["f1-regular", "monospace"],
-        "f1-bold": ["f1-bold", "monospace"],
-        "f1-wide": ["f1-wide", "monospace"]
+        "theme-regular": ["f1-regular", "monospace"],
+        "theme-bold": ["f1-bold", "monospace"],
+        "theme-wide": ["f1-wide", "monospace"]
       }
     },
   },
