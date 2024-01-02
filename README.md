@@ -1,9 +1,9 @@
-# BetterF1Fantasy
-A better version of the F1 fantasy game (hopefully)
+# Better Fantasy
+A place to customize your fantasy league
 
 # Development TODOs
 
-- [ ] Transitions, using states not the other thing
+- [ ] Make other leagues?
 
 ## Navbar
 ```js
