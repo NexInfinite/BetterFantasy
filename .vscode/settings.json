@@ -1,7 +1,8 @@
 {
     "cSpell.words": [
         "axum",
-        "tailwindcss"
+        "tailwindcss",
+        "urandom"
     ],
     "[javascript]": {
         "editor.tabSize": 2

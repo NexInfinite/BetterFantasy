@@ -11,7 +11,7 @@ export default function Footer() {
             <Link href="/about" className="hover:underline me-4 md:me-6" scroll={false}>About</Link>
           </li>
           <li>
-            <a href="https://github.com/nexinfinite/betterf1fantasy" target="_blank" className="hover:underline me-4 md:me-6">Github</a>
+            <a href="https://github.com/nexinfinite/BetterFantasy" target="_blank" className="hover:underline me-4 md:me-6">Github</a>
           </li>
           <li>
             <Link href="/license" className="hover:underline me-4 md:me-6" scroll={false}>Licensing</Link>
@@ -21,9 +21,6 @@ export default function Footer() {
           </li>
           <li>
             <Link href="/privacy" className="hover:underline me-4 md:me-6" scroll={false}>Privacy Policy</Link>
-          </li>
-          <li>
-            <a href="https://fantasy.formula1.com/en/" target="_blank" className="hover:underline">Original Fantasy</a>
           </li>
         </ul>
       </div>
