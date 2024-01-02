@@ -2,16 +2,33 @@ import { Fragment } from 'react'
 import { usePathname } from 'next/navigation'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/outline'
+import { FaChevronDown } from "react-icons/fa";
 import Link from "next/link"
 
-const navigation = [
-  { name: 'Home', href: '/'},
-  { name: 'Leagues', href: '/leagues'},
-  { name: 'Teams', href: '/teams'},
-]
+const navigation = {
+  "": [
+    { name: "Home", href: "/"},
+    { name: "About", href: "/about"}
+  ],
+  "f1": [
+    { name: 'Home', href: '/f1'},
+    { name: 'Leagues', href: '/f1/leagues'},
+    { name: 'Teams', href: '/f1/teams'},
+  ],
+  "valorant": [
+    { name: "Home", href: "/valorant"}
+  ]
+}
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
+}
+
+function getPathRoot() {
+  if (Object.keys(navigation).includes(usePathname().split("/")[1]))
+    return usePathname().split("/")[1]
+  else
+    return ""
 }
 
 export default function NavBar() {
@@ -45,13 +62,13 @@ export default function NavBar() {
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
-                      {navigation.map((item) => (
+                      {navigation[getPathRoot()].map((item) => (
                         <Link 
                           key={item.name}
                           href={item.href} 
                           scroll={false}
                           className={classNames(
-                            usePathname() == item.href ? 'ring-2 ring-inset ring-white text-white' : 'text-white hover:bg-red-800',
+                            usePathname().toLowerCase() == item.href ? 'ring-2 ring-inset ring-white text-white' : 'text-white hover:bg-red-800',
                             'rounded-md px-3 py-2 text-sm font-medium'
                           )}>
                             {item.name}
@@ -60,7 +77,44 @@ export default function NavBar() {
                     </div>
                   </div>
                 </div>
+
+                {/* Right hand side */}
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                  {/* Leagues */}
+                  <Menu as="div" className="relative m1-3 p-4">
+                    <div>
+                      <Menu.Button className="rounded-md ring-2 ring-inset ring-white text-white px-3 py-2 text-sm font-medium">{getPathRoot() == "" ? "HOME" : getPathRoot().toUpperCase()} <FaChevronDown className="h-4 w-4 inline" /></Menu.Button>
+                    </div>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <Menu.Item>
+                          <a href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Home
+                          </a>
+                        </Menu.Item>
+                        <Menu.Item>
+                          <a href="/f1" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            F1
+                          </a>
+                        </Menu.Item>
+                        <Menu.Item>
+                          <a href="/valorant" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Valorant
+                          </a>
+                        </Menu.Item>
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>
+
+                  {/* Notifications */}
                   <button
                     type="button"
                     className="relative rounded-full bg-red-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950"
@@ -88,27 +142,21 @@ export default function NavBar() {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
-                          {({ active }) => (
-                            <Link href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                              Your Profile
-                            </Link>
-                          )}
+                          <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Your Profile
+                          </Link>
                         </Menu.Item>
                         <Menu.Item>
-                          {({ active }) => (
-                            <Link href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                              Settings
-                            </Link>
-                          )}
+                          <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Settings
+                          </Link>
                         </Menu.Item>
                         <Menu.Item>
-                          {({ active }) => (
-                            <Link href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                              Sign out
-                            </Link>
-                          )}
+                          <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            Sign out
+                          </Link>
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
@@ -119,7 +167,7 @@ export default function NavBar() {
 
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-2 pb-3 pt-2">
-                {navigation.map((item) => (
+                {navigation["f1"].map((item) => (
                   <Disclosure.Button
                     key={item.name}
                     as="a"
