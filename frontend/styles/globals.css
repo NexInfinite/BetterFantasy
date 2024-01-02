@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import "f1.css";
+@import "valorant.css";
 
 @layer base {
   html {
