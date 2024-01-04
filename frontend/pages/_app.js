@@ -18,7 +18,9 @@ export default function MyApp({ Component, pageProps }) {
         initial={false}
         onExitComplete={() => window.scrollTo(0, 0)}
       >
-        <Component {...pageProps} />
+        <div className="relative z-0">
+          <Component {...pageProps} />
+        </div>
       </AnimatePresence>
       <div className="mt-32"></div>
       <Footer />

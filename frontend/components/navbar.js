@@ -1,7 +1,8 @@
-import { Fragment, useEffect } from 'react'
+import { Fragment } from 'react'
 import { usePathname } from 'next/navigation'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/outline'
+import { Menu, MenuList, MenuItem, MenuButton, Button } from '@chakra-ui/react'
 import { FaChevronDown } from "react-icons/fa";
 import { changeTheme } from "@/utils/helper";
 import Link from "next/link"
@@ -34,7 +35,7 @@ function getPathRoot() {
 
 export default function NavBar() {
   return (
-    <div className="pb-6 z-50 sm:pb-12 font-theme-regular">
+    <div className="relative z-10 pb-6 sm:pb-12 font-theme-regular">
       <Disclosure as="nav" className="bg-main drop-shadow-md">
         {({ open }) => (
           <>
@@ -80,9 +81,30 @@ export default function NavBar() {
                 </div>
 
                 {/* Right hand side */}
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div className="relative inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   {/* Leagues */}
-                  <Menu as="div" className="relative m1-3 p-4">
+                  <Menu offset={[0, 5]}>
+                    <MenuButton as={Button} rightIcon={<FaChevronDown /> } className="mr-4 rounded-md ring-2 ring-inset ring-white text-white px-3 py-2 text-sm font-medium">
+                      {getPathRoot() == "" ? "HOME" : getPathRoot().toUpperCase()}
+                    </MenuButton>
+                    <MenuList className="rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <MenuItem> 
+                        <Link href="/" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
+                          Home
+                        </Link></MenuItem>
+                      <MenuItem>
+                        <Link href="/f1" className="w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("f1")}>
+                          F1
+                        </Link>
+                      </MenuItem>
+                      <MenuItem>
+                        <Link href="/valorant" className="rounded-b-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("valorant")}>
+                          Valorant
+                        </Link>
+                      </MenuItem>
+                    </MenuList>
+                  </Menu>
+                  {/* <Menu as="div" className="relative m1-3 p-4">
                     <div>
                       <Menu.Button className="rounded-md ring-2 ring-inset ring-white text-white px-3 py-2 text-sm font-medium">{getPathRoot() == "" ? "HOME" : getPathRoot().toUpperCase()} <FaChevronDown className="h-4 w-4 inline" /></Menu.Button>
                     </div>
@@ -113,7 +135,7 @@ export default function NavBar() {
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
-                  </Menu>
+                  </Menu> */}
 
                   {/* Notifications */}
                   <button
@@ -126,7 +148,7 @@ export default function NavBar() {
                   </button>
 
                   {/* Profile dropdown */}
-                  <Menu as="div" className="relative ml-3">
+                  {/* <Menu as="div" className="relative ml-3">
                     <div>
                       <Menu.Button className="relative rounded-full bg-red-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950">
                         <span className="absolute -inset-1.5" />
@@ -161,7 +183,7 @@ export default function NavBar() {
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
-                  </Menu>
+                  </Menu> */}
                 </div>
               </div>
             </div>
