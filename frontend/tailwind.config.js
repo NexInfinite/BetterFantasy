@@ -1,23 +1,25 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}', // Note the addition of the `app` directory.
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    "./app/**/*.{js,ts,jsx,tsx,mdx}", // Note the addition of the `app` directory.
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
 
   ],
   theme: {
     extend: {
       colors: {
-        'f1-red': '#FF1801',
-        'dark-text': '#170908',
-        'light-text': '#BBE4E8',
-        'loading-bg': '#D9D9D9'
+        "main": "var(--color-main)",
+        "dark-text": "var(--color-dark-text)",
+        "light-text": "var(--color-light-text)",
+        "loading-bg": "var(--color-loading-bg)",
+        "navbar-hover": "var(--color-navbar-hover)",
+        "footer-main": "var(--footer-main)"
       },
       fontFamily: {
-        "f1-regular": ["f1-regular", "monospace"],
-        "f1-bold": ["f1-bold", "monospace"],
-        "f1-wide": ["f1-wide", "monospace"]
+        "theme-regular": ["f1-regular", "monospace"],
+        "theme-bold": ["f1-bold", "monospace"],
+        "theme-wide": ["f1-wide", "monospace"]
       }
     },
   },
