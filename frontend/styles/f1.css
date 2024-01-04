@@ -3,4 +3,6 @@ html[data-theme="f1"] {
     --color-dark-text: #170908;
     --color-light-text: #BBE4E8;
     --color-loading-bg: #D9D9D9;
+    --color-navbar-hover: #991B1B;
+    --color-footer-main: #1F2937;
 }

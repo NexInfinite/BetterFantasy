@@ -42,7 +42,7 @@ export default function NavBar() {
               <div className="relative flex h-16 items-center justify-between">
                 {/* Mobile menu button*/}
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden text-white">
-                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-red-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-navbar-hover hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="absolute -inset-0.5" />
                     <span className="sr-only">Open main menu</span>
                     {open ? (
@@ -67,7 +67,7 @@ export default function NavBar() {
                           href={item.href} 
                           scroll={false}
                           className={classNames(
-                            usePathname().toLowerCase() == item.href ? 'ring-2 ring-inset ring-white text-white' : 'text-white hover:bg-red-800',
+                            usePathname().toLowerCase() == item.href ? 'ring-2 ring-inset ring-white text-white' : 'text-white hover:bg-navbar-hover',
                             'rounded-md px-3 py-2 text-sm font-medium'
                           )}>
                             {item.name}
@@ -106,7 +106,7 @@ export default function NavBar() {
                   {/* Notifications */}
                   <button
                     type="button"
-                    className="relative rounded-full bg-red-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950"
+                    className="relative rounded-full bg-navbar-hover p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950"
                   >
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">View notifications</span>
@@ -115,7 +115,7 @@ export default function NavBar() {
 
                   {/* Profile dropdown */}
                   <Menu offset={[0, 5]}>
-                    <MenuButton as={Button} className="relative ml-2 rounded-full bg-red-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950">
+                    <MenuButton as={Button} className="relative ml-2 rounded-full bg-navbar-hover p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950">
                         <UserIcon className="h-6 w-6" aria-hidden="true" alt="Profile Icon and Dropdown" />
                     </MenuButton>
                     <MenuList className="rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
@@ -143,7 +143,7 @@ export default function NavBar() {
                     as="a"
                     href={item.href}
                     className={classNames(
-                      usePathname() == item.href ? 'text-white bg-red-800' : 'text-white hover:bg-red-850',
+                      usePathname() == item.href ? 'text-white bg-navbar-hover' : 'text-white hover:bg-red-850',
                       'block rounded-md px-3 py-2 text-base font-medium'
                     )}
                     aria-current={usePathname() == item.href ? 'page' : undefined}
