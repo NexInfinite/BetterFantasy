@@ -1,9 +1,8 @@
-import { Fragment } from 'react'
 import { usePathname } from 'next/navigation'
-import { Disclosure, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/outline'
+import { Disclosure } from '@headlessui/react'
+import { BellIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/outline'
 import { Menu, MenuList, MenuItem, MenuButton, Button } from '@chakra-ui/react'
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaBars } from "react-icons/fa";
 import { changeTheme } from "@/utils/helper";
 import Link from "next/link"
 
@@ -49,18 +48,16 @@ export default function NavBar() {
                     {open ? (
                       <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                     ) : (
-                      <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                      <FaBars className="block h-6 w-6" aria-hidden="true" />
                     )}
                   </Disclosure.Button>
+                  <img className="ml-2 h-8 w-auto" src="/favicon.svg" alt="Better F1 Fantasy" />
                 </div>
 
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                  <div className="flex flex-shrink-0 items-center">
-                    <img
-                      className="h-8 w-auto"
-                      src="/logo.svg"
-                      alt="Better F1 Fantasy"
-                    />
+                  <div className="flex flex-shrink items-center">
+                    <img className="hidden sm:block md:hidden h-8 w-auto" src="/favicon.svg" alt="Better F1 Fantasy" />
+                    <img className="hidden md:block h-8 w-auto" src="/logo.svg" alt="Better F1 Fantasy" />
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
@@ -91,7 +88,8 @@ export default function NavBar() {
                       <MenuItem> 
                         <Link href="/" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
                           Home
-                        </Link></MenuItem>
+                        </Link>
+                      </MenuItem>
                       <MenuItem>
                         <Link href="/f1" className="w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("f1")}>
                           F1
@@ -99,43 +97,11 @@ export default function NavBar() {
                       </MenuItem>
                       <MenuItem>
                         <Link href="/valorant" className="rounded-b-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("valorant")}>
-                          Valorant
+                          Valorant {/* NOTE: THE LAST ITEM MUST BE rounded-b-md AND NOT rounded-md!!! - Make sure the one above is just rounded-b-md */}
                         </Link>
                       </MenuItem>
                     </MenuList>
                   </Menu>
-                  {/* <Menu as="div" className="relative m1-3 p-4">
-                    <div>
-                      <Menu.Button className="rounded-md ring-2 ring-inset ring-white text-white px-3 py-2 text-sm font-medium">{getPathRoot() == "" ? "HOME" : getPathRoot().toUpperCase()} <FaChevronDown className="h-4 w-4 inline" /></Menu.Button>
-                    </div>
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-100"
-                      enterFrom="transform opacity-0 scale-95"
-                      enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
-                      leaveFrom="transform opacity-100 scale-100"
-                      leaveTo="transform opacity-0 scale-95"
-                    >
-                      <Menu.Items className="absolute right-0 z-40 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
-                          <Link href="/" className="block z-50 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
-                            Home
-                          </Link>
-                        </Menu.Item>
-                        <Menu.Item>
-                          <Link href="/f1" className="block z-50 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("f1")}>
-                            F1
-                          </Link>
-                        </Menu.Item>
-                        <Menu.Item>
-                          <Link href="/valorant" className="z-50 block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("valorant")}>
-                            Valorant
-                          </Link>
-                        </Menu.Item>
-                      </Menu.Items>
-                    </Transition>
-                  </Menu> */}
 
                   {/* Notifications */}
                   <button
@@ -148,49 +114,30 @@ export default function NavBar() {
                   </button>
 
                   {/* Profile dropdown */}
-                  {/* <Menu as="div" className="relative ml-3">
-                    <div>
-                      <Menu.Button className="relative rounded-full bg-red-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950">
-                        <span className="absolute -inset-1.5" />
-                        <span className="sr-only">Open user menu</span>
+                  <Menu offset={[0, 5]}>
+                    <MenuButton as={Button} className="relative ml-2 rounded-full bg-red-800 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950">
                         <UserIcon className="h-6 w-6" aria-hidden="true" alt="Profile Icon and Dropdown" />
-                      </Menu.Button>
-                    </div>
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-100"
-                      enterFrom="transform opacity-0 scale-95"
-                      enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
-                      leaveFrom="transform opacity-100 scale-100"
-                      leaveTo="transform opacity-0 scale-95"
-                    >
-                      <Menu.Items className="absolute right-0 z-50 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
-                          <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                            Your Profile
-                          </Link>
-                        </Menu.Item>
-                        <Menu.Item>
-                          <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                            Settings
-                          </Link>
-                        </Menu.Item>
-                        <Menu.Item>
-                          <Link href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                            Sign out
-                          </Link>
-                        </Menu.Item>
-                      </Menu.Items>
-                    </Transition>
-                  </Menu> */}
+                    </MenuButton>
+                    <MenuList className="rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <MenuItem> 
+                        <Link href="#" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
+                          Create Account
+                        </Link>
+                      </MenuItem>
+                      <MenuItem>
+                        <Link href="#" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
+                          Profile
+                        </Link>
+                      </MenuItem>
+                    </MenuList>
+                  </Menu>
                 </div>
               </div>
             </div>
 
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-2 pb-3 pt-2">
-                {navigation["f1"].map((item) => (
+                {navigation[getPathRoot()].map((item) => (
                   <Disclosure.Button
                     key={item.name}
                     as="a"
