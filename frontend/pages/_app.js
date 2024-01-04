@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head"
+import Script from 'next/script'
 import { AnimatePresence } from 'framer-motion'
 import "../styles/globals.css";
 
@@ -12,13 +13,16 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
+      <Script src="/themes.js" />
       <NavBar />
       <AnimatePresence
         mode="wait"
         initial={false}
         onExitComplete={() => window.scrollTo(0, 0)}
       >
-        <Component {...pageProps} />
+        <div className="relative z-0">
+          <Component {...pageProps} />
+        </div>
       </AnimatePresence>
       <div className="mt-32"></div>
       <Footer />
