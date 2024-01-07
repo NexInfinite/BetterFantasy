@@ -14,7 +14,7 @@ module.exports = {
         "light-text": "var(--color-light-text)",
         "loading-bg": "var(--color-loading-bg)",
         "navbar-hover": "var(--color-navbar-hover)",
-        "footer-main": "var(--footer-main)"
+        "footer-main": "var(--color-footer-main)"
       },
       fontFamily: {
         "theme-regular": ["f1-regular", "monospace"],
