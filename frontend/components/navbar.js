@@ -35,7 +35,7 @@ function getPathRoot() {
 export default function NavBar() {
   return (
     <div className="relative z-10 pb-6 sm:pb-12 font-theme-regular">
-      <Disclosure as="nav" className="bg-main drop-shadow-md">
+      <Disclosure as="nav" className="bg-navbar-main drop-shadow-md">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

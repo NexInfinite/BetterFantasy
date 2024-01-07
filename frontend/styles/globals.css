@@ -7,18 +7,24 @@
 @layer base {
   html {
     --color-main: #202020;
+    --color-navbar-main: #202020;
+    --color-navbar-hover: #393939;
     --color-dark-text: #170908;
     --color-light-text: #e1e1e1;
     --color-loading-bg: #D9D9D9;
-    --color-navbar-hover: #393939;
     --color-footer-main: #202020;
+    --color-bg-color: #FFFFFF;
+  }
+
+  body {
+    background-color: var(--color-bg-color);
   }
 }
 
 body {
   scroll-behavior: smooth;
-  background-color: #FFFFFF;
 }
+
 
 
 @font-face {
