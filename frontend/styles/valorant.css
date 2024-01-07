@@ -1,10 +1,13 @@
 html[data-theme="valorant"] {
+    /* See globals.css for docs */
     --color-main: #ffffff;
+    --color-dark-text: #f5f5f5;
+    --color-light-text: #FFFBF5;
+    
+    --color-bg-color: #322b2b;
+    --color-accent: #D9D9D9;
+
     --color-navbar-main: #FD4556; 
     --color-navbar-hover: #BD3944;
-    --color-dark-text: #53212B;
-    --color-light-text: #FFFBF5;
-    --color-loading-bg: #D9D9D9;
     --color-footer-main: #FD4556;
-    --color-bg-color: #000000;
 }

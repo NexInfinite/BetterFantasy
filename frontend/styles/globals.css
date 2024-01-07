@@ -6,14 +6,16 @@
 
 @layer base {
   html {
-    --color-main: #202020;
-    --color-navbar-main: #202020;
-    --color-navbar-hover: #393939;
-    --color-dark-text: #170908;
-    --color-light-text: #e1e1e1;
-    --color-loading-bg: #D9D9D9;
-    --color-footer-main: #202020;
-    --color-bg-color: #FFFFFF;
+    --color-main: #202020;          /* Main font color */
+    --color-dark-text: #170908;     /* Secondary font color */
+    --color-light-text: #e1e1e1;    /* Lighter font color - used on footer and navbar */
+    
+    --color-bg-color: #FFFFFF;      /* Page background color*/
+    --color-accent: #D9D9D9;        /* Main accent color */
+
+    --color-navbar-main: #202020;   /* Navbar background */
+    --color-navbar-hover: #393939;  /* Navbar accent */
+    --color-footer-main: #202020;   /* Footer background color */
   }
 
   body {
