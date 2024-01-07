@@ -82,7 +82,7 @@ export default function NavBar() {
                   {/* Leagues */}
                   <Menu offset={[0, 5]}>
                     <MenuButton as={Button} rightIcon={<FaChevronDown /> } className="mr-4 rounded-md ring-2 ring-inset ring-white text-white px-3 py-2 text-sm font-medium">
-                      {getPathRoot() == "" ? "HOME" : getPathRoot().toUpperCase()}
+                      {getPathRoot() == "" ? "Select A League" : getPathRoot().toUpperCase()}
                     </MenuButton>
                     <MenuList className="rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <MenuItem> 
@@ -120,12 +120,12 @@ export default function NavBar() {
                     </MenuButton>
                     <MenuList className="rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <MenuItem> 
-                        <Link href="/login" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
+                        <Link href="/login" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                           Login
                         </Link>
                       </MenuItem>
                       <MenuItem>
-                        <Link href="/profile" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
+                        <Link href="/profile" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                           Profile
                         </Link>
                       </MenuItem>
