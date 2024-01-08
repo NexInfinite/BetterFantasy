@@ -35,7 +35,7 @@ function getPathRoot() {
 export default function NavBar() {
   return (
     <div className="relative z-10 pb-6 sm:pb-12 font-theme-regular">
-      <Disclosure as="nav" className="bg-main drop-shadow-md">
+      <Disclosure as="nav" className="bg-navbar-main drop-shadow-md">
         {({ open }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -51,7 +51,7 @@ export default function NavBar() {
                       <FaBars className="block h-6 w-6" aria-hidden="true" />
                     )}
                   </Disclosure.Button>
-                  <img className="ml-2 h-8 w-auto" src="/favicon.svg" alt="Better F1 Fantasy" />
+                  <img className="ml-2 h-6 w-auto" src="/favicon.svg" alt="Better F1 Fantasy" />
                 </div>
 
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -81,8 +81,8 @@ export default function NavBar() {
                 <div className="relative inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   {/* Leagues */}
                   <Menu offset={[0, 5]}>
-                    <MenuButton as={Button} rightIcon={<FaChevronDown /> } className="mr-4 rounded-md ring-2 ring-inset ring-white text-white px-3 py-2 text-sm font-medium">
-                      {getPathRoot() == "" ? "HOME" : getPathRoot().toUpperCase()}
+                    <MenuButton as={Button} rightIcon={<FaChevronDown /> } className="mr-4 rounded-md ring-2 ring-inset ring-white text-white px-3 py-2 text-xs font-medium sm:text-md">
+                      {getPathRoot() == "" ? "Select A League" : getPathRoot().toUpperCase()}
                     </MenuButton>
                     <MenuList className="rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <MenuItem> 
@@ -120,12 +120,12 @@ export default function NavBar() {
                     </MenuButton>
                     <MenuList className="rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <MenuItem> 
-                        <Link href="#" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
-                          Create Account
+                        <Link href="/login" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
+                          Login
                         </Link>
                       </MenuItem>
                       <MenuItem>
-                        <Link href="#" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
+                        <Link href="/profile" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
                           Profile
                         </Link>
                       </MenuItem>

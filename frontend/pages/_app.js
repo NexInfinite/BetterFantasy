@@ -14,6 +14,7 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
       <Script src="/themes.js" />
+    
       <div className="transition-colors duration-150 ease-in-out">
         <NavBar />
         <AnimatePresence
@@ -21,7 +22,7 @@ export default function MyApp({ Component, pageProps }) {
           initial={false}
           onExitComplete={() => window.scrollTo(0, 0)}
         >
-          <div className="relative z-0">
+          <div className="relative z-0 bg-red">
             <Component {...pageProps} />
           </div>
         </AnimatePresence>

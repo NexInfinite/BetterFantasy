@@ -6,19 +6,27 @@
 
 @layer base {
   html {
-    --color-main: #01ff6b;
-    --color-dark-text: #170908;
-    --color-light-text: #BBE4E8;
-    --color-loading-bg: #D9D9D9;
-    --color-navbar-hover: #109d4b;
-    --color-footer-main: #1F2937;
+    --color-main: #202020;          /* Main font color */
+    --color-dark-text: #170908;     /* Secondary font color */
+    --color-light-text: #e1e1e1;    /* Lighter font color - used on footer and navbar */
+    
+    --color-bg-color: #f5f5f5;      /* Page background color*/
+    --color-accent: #4c69d2;        /* Main accent color */
+
+    --color-navbar-main: #202020;   /* Navbar background */
+    --color-navbar-hover: #393939;  /* Navbar accent */
+    --color-footer-main: #202020;   /* Footer background color */
+  }
+
+  body {
+    background-color: var(--color-bg-color);
   }
 }
 
 body {
   scroll-behavior: smooth;
-  background-color: #FFFFFF;
 }
+
 
 
 @font-face {
