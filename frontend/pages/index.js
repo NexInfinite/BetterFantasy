@@ -1,4 +1,3 @@
-import HoverLink from "@/components/link"
 import Layout from "@/components/layout"
 
 export default function Home() {
