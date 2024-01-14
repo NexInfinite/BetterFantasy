@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div id="loading-screen" hidden={true} className="transition-opacity ease-out duration-400 opacity-0 absolute x-0 y-0 w-full h-full z-50 bg-slate-900 overflow-hidden text-white text-bold font-theme-regular text-2xl">
+    <div id="loading-screen" hidden={true} className="transition-opacity ease-out duration-400 opacity-0 absolute x-0 y-0 w-full h-full z-50 bg-gradient-to-tl from-slate-900 to-slate-800 overflow-hidden text-white text-bold font-theme-regular text-2xl">
       <div className="h-full grid grid-cols-1 justify-items-center content-center">
         <div className="w-8/12">
           Loading...
