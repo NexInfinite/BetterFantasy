@@ -10,10 +10,9 @@ export const changeTheme = (theme) => {
         loadingDiv.style.opacity = 100
         
         // Wait a bit and slowly move bar up
-        setTimeout(function () { loadingBar.style.width = getRandomArbitrary(0, 15) + "%"; }, 200);
-        setTimeout(function () { loadingBar.style.width = getRandomArbitrary(20, 35) + "%"; }, 400);
-        setTimeout(function () { loadingBar.style.width = getRandomArbitrary(40, 50) + "%"; }, 500);
-        setTimeout(function () { loadingBar.style.width = getRandomArbitrary(60, 70) + "%"; }, 600);
+        setTimeout(function () { loadingBar.style.width = getRandomArbitrary(0, 15) + "%"; }, getRandomArbitrary(100, 300));
+        setTimeout(function () { loadingBar.style.width = getRandomArbitrary(20, 70) + "%"; }, getRandomArbitrary(300, 700));
+        setTimeout(function () { loadingBar.style.width = getRandomArbitrary(65, 90) + "%"; }, getRandomArbitrary(700, 800));
         
         // Change theme, wait slightly longer then reveal
         setTimeout(function () { document.querySelector("html")?.setAttribute("data-theme", theme); }, 500);
