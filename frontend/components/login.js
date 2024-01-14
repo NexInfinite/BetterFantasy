@@ -1,4 +1,3 @@
-
 export const LoginForm = () => (
   <div className="flex w-full justify-center mt-6 font-theme-regular">
     <form className="w-10/12 max-w-xl bg-white rounded-lg shadow-xl border-slate-100 border-solid border-2 py-12 px-10 bg-main">

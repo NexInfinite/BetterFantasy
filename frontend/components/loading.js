@@ -1,25 +1,14 @@
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-
 export default function Loading() {
-  const router = useRouter();
-
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-      const handleStart = (url) => (url !== router.asPath) && setLoading(true);
-      const handleComplete = (url) => (url === router.asPath) && setLoading(false);
-
-      router.events.on('routeChangeStart', handleStart)
-      router.events.on('routeChangeComplete', handleComplete)
-      router.events.on('routeChangeError', handleComplete)
-
-      return () => {
-          router.events.off('routeChangeStart', handleStart)
-          router.events.off('routeChangeComplete', handleComplete)
-          router.events.off('routeChangeError', handleComplete)
-      }
-  })
-  
-  return loading && (<div>Loading....</div>);
+  return (
+    <div id="loading-screen" hidden={true} className="transition-opacity ease-in-out duration-150 opacity-0 absolute x-0 y-0 w-full h-full z-50 bg-slate-900 overflow-hidden text-white text-bold font-theme-regular text-2xl">
+      <div className="h-full grid grid-cols-1 justify-items-center content-center">
+        <div className="w-8/12">
+          Loading...
+          <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
+            <div id="loading-bar" className="transition-all ease-in duration-250 bg-blue-600 h-2.5 rounded-full dark:bg-blue-500" style={{width: "0%"}}></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ); 
 }
