@@ -3,7 +3,7 @@ export const changeTheme = (theme) => {
     let loadingDiv = document.getElementById("loading-screen");
     let loadingBar = document.getElementById("loading-bar");
     loadingDiv.hidden = false;
-    loadingDiv.style.opacity = 100;
+    setTimeout(function () { loadingDiv.style.opacity = 100; }, 0);
     
     // Wait a bit and slowly move bar up
     setTimeout(function () { loadingBar.style.width = getRandomArbitrary(0, 15) + "%"; }, 200);
@@ -14,9 +14,9 @@ export const changeTheme = (theme) => {
     // Change theme, wait slightly longer then reveal
     setTimeout(function () { document.querySelector("html")?.setAttribute("data-theme", theme); }, 500);
     setTimeout(function () { loadingBar.style.width = "100%"; }, 900);
-    setTimeout(function () { loadingDiv.hidden = true; }, 1200);
+    setTimeout(function () { loadingDiv.style.opacity = 0; }, 1000);
+    setTimeout(function () { loadingDiv.hidden = true; }, 1250);
     loadingBar.style.width = "0%";
-    loadingDiv.opacity = 0;
 };
 
 function getRandomArbitrary(min, max) {
