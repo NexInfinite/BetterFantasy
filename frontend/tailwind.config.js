@@ -12,9 +12,11 @@ module.exports = {
         "main": "var(--color-main)",
         "dark-text": "var(--color-dark-text)",
         "light-text": "var(--color-light-text)",
-        "loading-bg": "var(--color-loading-bg)",
+        "accent": "var(--color-accent)",
+        "background-main": "var(--color-bg-color)",
+        "navbar-main": "var(--color-navbar-main)",
         "navbar-hover": "var(--color-navbar-hover)",
-        "footer-main": "var(--footer-main)"
+        "footer-main": "var(--color-footer-main)"
       },
       fontFamily: {
         "theme-regular": ["f1-regular", "monospace"],

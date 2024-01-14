@@ -4,8 +4,9 @@ import Script from 'next/script'
 import { AnimatePresence } from 'framer-motion'
 import "../styles/globals.css";
 
-import Footer from "../components/footer";
-import NavBar from "../components/navbar";
+import Loading from "@/components/loading";
+import Footer from "@/components/footer";
+import NavBar from "@/components/navbar";
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -14,6 +15,8 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
       <Script src="/themes.js" />
+    
+      <Loading />
       <div className="transition-colors duration-150 ease-in-out">
         <NavBar />
         <AnimatePresence
@@ -21,7 +24,7 @@ export default function MyApp({ Component, pageProps }) {
           initial={false}
           onExitComplete={() => window.scrollTo(0, 0)}
         >
-          <div className="relative z-0">
+          <div className="relative z-0 bg-red">
             <Component {...pageProps} />
           </div>
         </AnimatePresence>

@@ -1,8 +1,13 @@
 html[data-theme="f1"] {
-    --color-main: #FF1801;
+    /* See globals.css for docs */
+    --color-main: #e12615;
     --color-dark-text: #170908;
-    --color-light-text: #BBE4E8;
-    --color-loading-bg: #D9D9D9;
+    --color-light-text: #e1e1e1;
+    
+    --color-bg-color: #FFFFFF;
+    --color-accent: #D9D9D9;
+
+    --color-navbar-main: #e12615;
     --color-navbar-hover: #991B1B;
-    --color-footer-main: #1F2937;
+    --color-footer-main: #202020;
 }
