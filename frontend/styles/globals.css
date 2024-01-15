@@ -6,16 +6,16 @@
 
 @layer base {
   html {
-    --color-main: #202020;          /* Main font color */
-    --color-dark-text: #170908;     /* Secondary font color */
-    --color-light-text: #e1e1e1;    /* Lighter font color - used on footer and navbar */
-    
-    --color-bg-color: #ffffff;      /* Page background color*/
-    --color-accent: #4c69d2;        /* Main accent color */
+    --color-main: #202020; /* Main font color */
+    --color-dark-text: #170908; /* Secondary font color */
+    --color-light-text: #e1e1e1; /* Lighter font color - used on footer and navbar */
 
-    --color-navbar-main: #202020;   /* Navbar background */
-    --color-navbar-hover: #393939;  /* Navbar accent */
-    --color-footer-main: #202020;   /* Footer background color */
+    --color-bg-color: #ffffff; /* Page background color*/
+    --color-accent: #4c69d2; /* Main accent color */
+
+    --color-navbar-main: #202020; /* Navbar background */
+    --color-navbar-hover: #393939; /* Navbar accent */
+    --color-footer-main: #202020; /* Footer background color */
   }
 
   body {
@@ -26,8 +26,6 @@
 body {
   scroll-behavior: smooth;
 }
-
-
 
 @font-face {
   font-family: "f1-regular";

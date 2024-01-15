@@ -1,4 +1,4 @@
-import Layout from "@/components/layout"
+import Layout from "@/components/layout";
 
 export default function Privacy() {
   return (
@@ -8,5 +8,5 @@ export default function Privacy() {
         <h2 className="text-xl text-dark-text font-theme-regular">TBF</h2>
       </div>
     </Layout>
-  )
+  );
 }
