@@ -7,7 +7,7 @@ export const LoginForm = () => (
       <input
         id="email"
         type="email"
-        className="w-full text-md appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 placeholder:italic placeholder:text-neutral-400 placeholder:text-sm"
+        className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
         placeholder="email@domain.com"
         pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
         title="Invalid Email Address"
@@ -22,19 +22,19 @@ export const LoginForm = () => (
       <input
         id="password"
         type="password"
-        className="w-full text-md appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 placeholder:italic placeholder:text-neutral-400 placeholder:text-sm"
+        className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
         placeholder="password"
       />
 
       <div className="flex items-center justify-between mt-6">
         <button
-          className="ring-2 ring-inset ring-main text-main font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline text-xs sm:text-md"
+          className="transition-all ease-in duration-400 ring-2 ring-inset ring-main text-main font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline text-sm md:text-md hover:text-white hover:bg-main"
           type="submit"
         >
           Sign In
         </button>
         <a
-          className="inline-block align-baseline underline text-xs sm:text-sm text-main"
+          className="inline-block align-baseline underline text-xs sm:text-sm text-main hover:decoration-2"
           href="/forgot-password"
         >
           Forgot Password?
