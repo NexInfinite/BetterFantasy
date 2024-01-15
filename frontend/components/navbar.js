@@ -55,18 +55,21 @@ export default function NavBar() {
                   />
                 </div>
 
+                {/* Logo/Burger Menu */}
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink items-center">
-                    <img
-                      className="hidden sm:block md:hidden h-8 w-auto"
-                      src="/favicon.svg"
-                      alt="Better F1 Fantasy"
-                    />
-                    <img
-                      className="hidden md:block h-8 w-auto"
-                      src="/logo.svg"
-                      alt="Better F1 Fantasy"
-                    />
+                    <Link href="/" scroll={false} onClick={() => changeTheme("")}>
+                      <img
+                        className="hidden sm:block md:hidden h-8 w-auto"
+                        src="/favicon.svg"
+                        alt="Better F1 Fantasy"
+                      />
+                      <img
+                        className="hidden md:block h-8 w-auto"
+                        src="/logo.svg"
+                        alt="Better F1 Fantasy"
+                      />
+                    </Link>
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
