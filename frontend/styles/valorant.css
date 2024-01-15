@@ -1,13 +1,13 @@
 html[data-theme="valorant"] {
-    /* See globals.css for docs */
-    --color-main: #ffffff;
-    --color-dark-text: #f5f5f5;
-    --color-light-text: #FFFBF5;
-    
-    --color-bg-color: #322b2b;
-    --color-accent: #D9D9D9;
+  /* See globals.css for docs */
+  --color-main: #ffffff;
+  --color-dark-text: #f5f5f5;
+  --color-light-text: #fffbf5;
 
-    --color-navbar-main: #FD4556; 
-    --color-navbar-hover: #BD3944;
-    --color-footer-main: #FD4556;
+  --color-bg-color: #322b2b;
+  --color-accent: #d9d9d9;
+
+  --color-navbar-main: #fd4556;
+  --color-navbar-hover: #bd3944;
+  --color-footer-main: #fd4556;
 }

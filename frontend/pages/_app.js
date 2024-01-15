@@ -1,7 +1,7 @@
 import React from "react";
-import Head from "next/head"
-import Script from 'next/script'
-import { AnimatePresence } from 'framer-motion'
+import Head from "next/head";
+import Script from "next/script";
+import { AnimatePresence } from "framer-motion";
 import "../styles/globals.css";
 
 import Loading from "@/components/loading";
@@ -15,7 +15,7 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
       <Script src="/themes.js" />
-    
+
       <Loading />
       <div className="transition-colors duration-150 ease-in-out">
         <NavBar />
@@ -33,5 +33,5 @@ export default function MyApp({ Component, pageProps }) {
         <Footer />
       </div>
     </>
-  )
+  );
 }

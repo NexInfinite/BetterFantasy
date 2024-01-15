@@ -1,35 +1,32 @@
-import { usePathname } from 'next/navigation'
-import { Disclosure } from '@headlessui/react'
-import { BellIcon, XMarkIcon, UserIcon } from '@heroicons/react/24/outline'
-import { Menu, MenuList, MenuItem, MenuButton, Button } from '@chakra-ui/react'
+import { usePathname } from "next/navigation";
+import { Disclosure } from "@headlessui/react";
+import { BellIcon, XMarkIcon, UserIcon } from "@heroicons/react/24/outline";
+import { Menu, MenuList, MenuItem, MenuButton, Button } from "@chakra-ui/react";
 import { FaChevronDown, FaBars } from "react-icons/fa";
 import { changeTheme } from "@/utils/helper";
-import Link from "next/link"
+import Link from "next/link";
 
 const navigation = {
   "": [
-    { name: "Home", href: "/"},
-    { name: "About", href: "/about"}
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
   ],
-  "f1": [
-    { name: 'Home', href: '/f1'},
-    { name: 'Leagues', href: '/f1/leagues'},
-    { name: 'Teams', href: '/f1/teams'},
+  f1: [
+    { name: "Home", href: "/f1" },
+    { name: "Leagues", href: "/f1/leagues" },
+    { name: "Teams", href: "/f1/teams" },
   ],
-  "valorant": [
-    { name: "Home", href: "/valorant"}
-  ]
-}
+  valorant: [{ name: "Home", href: "/valorant" }],
+};
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 function getPathRoot() {
   if (Object.keys(navigation).includes(usePathname().split("/")[1]))
-    return usePathname().split("/")[1]
-  else
-    return ""
+    return usePathname().split("/")[1];
+  else return "";
 }
 
 export default function NavBar() {
@@ -51,26 +48,44 @@ export default function NavBar() {
                       <FaBars className="block h-6 w-6" aria-hidden="true" />
                     )}
                   </Disclosure.Button>
-                  <img className="ml-2 h-6 w-auto" src="/favicon.svg" alt="Better F1 Fantasy" />
+                  <img
+                    className="ml-2 h-6 w-auto"
+                    src="/favicon.svg"
+                    alt="Better F1 Fantasy"
+                  />
                 </div>
 
+                {/* Logo/Burger Menu */}
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink items-center">
-                    <img className="hidden sm:block md:hidden h-8 w-auto" src="/favicon.svg" alt="Better F1 Fantasy" />
-                    <img className="hidden md:block h-8 w-auto" src="/logo.svg" alt="Better F1 Fantasy" />
+                    <Link href="/" scroll={false} onClick={() => changeTheme("")}>
+                      <img
+                        className="hidden sm:block md:hidden h-8 w-auto"
+                        src="/favicon.svg"
+                        alt="Better F1 Fantasy"
+                      />
+                      <img
+                        className="hidden md:block h-8 w-auto"
+                        src="/logo.svg"
+                        alt="Better F1 Fantasy"
+                      />
+                    </Link>
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4">
                       {navigation[getPathRoot()].map((item) => (
-                        <Link 
+                        <Link
                           key={item.name}
-                          href={item.href} 
+                          href={item.href}
                           scroll={false}
                           className={classNames(
-                            usePathname().toLowerCase() == item.href ? 'ring-2 ring-inset ring-white text-white' : 'text-white hover:bg-navbar-hover',
-                            'rounded-md px-3 py-2 text-sm font-medium'
-                          )}>
-                            {item.name}
+                            usePathname().toLowerCase() == item.href
+                              ? "ring-2 ring-inset ring-white text-white"
+                              : "text-white hover:bg-navbar-hover",
+                            "rounded-md px-3 py-2 text-sm font-medium",
+                          )}
+                        >
+                          {item.name}
                         </Link>
                       ))}
                     </div>
@@ -81,23 +96,42 @@ export default function NavBar() {
                 <div className="relative inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   {/* Leagues */}
                   <Menu offset={[0, 5]}>
-                    <MenuButton as={Button} rightIcon={<FaChevronDown /> } className="mr-4 rounded-md ring-2 ring-inset ring-white text-white px-3 py-2 text-xs font-medium sm:text-md">
-                      {getPathRoot() == "" ? "Select A League" : getPathRoot().toUpperCase()}
+                    <MenuButton
+                      as={Button}
+                      rightIcon={<FaChevronDown />}
+                      className="mr-4 rounded-md ring-2 ring-inset ring-white text-white px-3 py-2 text-xs font-medium sm:text-md"
+                    >
+                      {getPathRoot() == ""
+                        ? "Select A League"
+                        : getPathRoot().toUpperCase()}
                     </MenuButton>
                     <MenuList className="rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <MenuItem> 
-                        <Link href="/" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
+                      <MenuItem>
+                        <Link
+                          href="/"
+                          className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          onClick={() => changeTheme("")}
+                        >
                           Home
                         </Link>
                       </MenuItem>
                       <MenuItem>
-                        <Link href="/f1" className="w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("f1")}>
+                        <Link
+                          href="/f1"
+                          className="w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          onClick={() => changeTheme("f1")}
+                        >
                           F1
                         </Link>
                       </MenuItem>
                       <MenuItem>
-                        <Link href="/valorant" className="rounded-b-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("valorant")}>
-                          Valorant {/* NOTE: THE LAST ITEM MUST BE rounded-b-md AND NOT rounded-md!!! - Make sure the one above is just rounded-b-md */}
+                        <Link
+                          href="/valorant"
+                          className="rounded-b-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          onClick={() => changeTheme("valorant")}
+                        >
+                          Valorant{" "}
+                          {/* NOTE: THE LAST ITEM MUST BE rounded-b-md AND NOT rounded-md!!! - Make sure the one above is just rounded-b-md */}
                         </Link>
                       </MenuItem>
                     </MenuList>
@@ -110,22 +144,41 @@ export default function NavBar() {
                   >
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" alt="notifications" />
+                    <BellIcon
+                      className="h-6 w-6"
+                      aria-hidden="true"
+                      alt="notifications"
+                    />
                   </button>
 
                   {/* Profile dropdown */}
                   <Menu offset={[0, 5]}>
-                    <MenuButton as={Button} className="relative ml-2 rounded-full bg-navbar-hover p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950">
-                        <UserIcon className="h-6 w-6" aria-hidden="true" alt="Profile Icon and Dropdown" />
+                    <MenuButton
+                      as={Button}
+                      className="relative ml-2 rounded-full bg-navbar-hover p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-950"
+                    >
+                      <UserIcon
+                        className="h-6 w-6"
+                        aria-hidden="true"
+                        alt="Profile Icon and Dropdown"
+                      />
                     </MenuButton>
                     <MenuList className="rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <MenuItem> 
-                        <Link href="/login" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
+                      <MenuItem>
+                        <Link
+                          href="/login"
+                          className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          onClick={() => changeTheme("")}
+                        >
                           Login
                         </Link>
                       </MenuItem>
                       <MenuItem>
-                        <Link href="/profile" className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => changeTheme("")}>
+                        <Link
+                          href="/profile"
+                          className="rounded-t-md w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          onClick={() => changeTheme("")}
+                        >
                           Profile
                         </Link>
                       </MenuItem>
@@ -143,10 +196,14 @@ export default function NavBar() {
                     as="a"
                     href={item.href}
                     className={classNames(
-                      usePathname() == item.href ? 'text-white bg-navbar-hover' : 'text-white hover:bg-red-850',
-                      'block rounded-md px-3 py-2 text-base font-medium'
+                      usePathname() == item.href
+                        ? "text-white bg-navbar-hover"
+                        : "text-white hover:bg-red-850",
+                      "block rounded-md px-3 py-2 text-base font-medium",
                     )}
-                    aria-current={usePathname() == item.href ? 'page' : undefined}
+                    aria-current={
+                      usePathname() == item.href ? "page" : undefined
+                    }
                   >
                     {item.name}
                   </Disclosure.Button>
@@ -157,5 +214,5 @@ export default function NavBar() {
         )}
       </Disclosure>
     </div>
-  )
+  );
 }
