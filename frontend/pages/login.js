@@ -3,7 +3,7 @@ import { LoginForm } from "@/components/login";
 
 export default function Login() {
   return (
-    <Layout title="Login" description="Login or create an account!">
+    <Layout title="Login" description="Login back in!">
       <div id="page-heading" className="text-center">
         <h1 className="text-6xl text-main font-theme-bold">Login</h1>
         <h2 className="text-xl text-dark-text font-theme-regular">

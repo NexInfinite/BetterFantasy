@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const LoginForm = () => (
   <div className="flex w-full justify-center mt-6 font-theme-regular">
     <div className="w-10/12 max-w-xl bg-white rounded-lg shadow-xl border-slate-100 border-solid border-2 p-10 bg-main">
@@ -58,9 +60,11 @@ export const LoginForm = () => (
       {/* Create Account */}
       <div className="text-center">
         <p>New to Better Fantasy?</p>
-        <button className="transition-all ease-in duration-400 ring-2 ring-inset ring-main text-main font-bold mt-2 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline text-sm md:text-md hover:text-white hover:bg-main">
-          Create Account
-        </button>
+        <Link href="/create-account" scroll={false}>
+          <button className="transition-all ease-in duration-400 ring-2 ring-inset ring-main text-main font-bold mt-2 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline text-sm md:text-md hover:text-white hover:bg-main">
+            Create Account
+          </button>
+        </Link>
       </div>
     </div>
 
