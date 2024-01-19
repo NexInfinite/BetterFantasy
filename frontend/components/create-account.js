@@ -33,16 +33,37 @@ export const CreateAccountForm = () => (
         />
 
         {/* Password Input */}
-        <label htmlFor="password" className="block text-main text-lg font-bold mb-2 mt-6">
-          Password
-        </label>
-        <input
-          id="password"
-          type="password"
-          className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
-          placeholder="password"
-          required="required"
-        />
+        <div className="grid grid-cols-2 gap-8">
+          <div>
+            <label htmlFor="password" className="block text-main text-lg font-bold mb-2 mt-6">
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
+              placeholder="password"
+              required="required"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
+              title="Password must include at least 1 uppercase character, 1 lowercase character, 1 number and 1 symbol. This must be between 8 and 16 characters"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="confirm_password" className="block text-main text-lg font-bold mb-2 mt-6">
+              Confirm Password
+            </label>
+            <input
+              id="confirm_password"
+              type="password"
+              className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
+              placeholder="password (again)"
+              required="required"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
+              title="Password must include at least 1 uppercase character, 1 lowercase character, 1 number and 1 symbol. This must be between 8 and 16 characters"
+            />
+          </div>
+        </div>
 
         {/* Login Button/Forgot Password */}
         <div className="flex items-center justify-between mt-6">
