@@ -16,6 +16,7 @@ export const LoginForm = () => (
           placeholder="email@domain.com"
           pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
           title="Invalid Email Address"
+          required="required"
         />
 
         {/* Password Input */}
@@ -30,6 +31,9 @@ export const LoginForm = () => (
           type="password"
           className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
           placeholder="password"
+          required="required"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
+          title="Password must include at least 1 uppercase character, 1 lowercase character, 1 number and 1 symbol. This must be between 8 and 16 characters"
         />
 
         {/* Login Button/Forgot Password */}
