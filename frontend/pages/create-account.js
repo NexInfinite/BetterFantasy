@@ -1,4 +1,5 @@
 import Layout from "@/components/layout";
+import { CreateAccountForm } from "@/components/create-account";
 
 export default function CreateAccount() {
   return (
@@ -6,9 +7,10 @@ export default function CreateAccount() {
       <div id="page-heading" className="text-center">
         <h1 className="text-6xl text-main font-theme-bold">Create Account</h1>
         <h2 className="text-xl text-dark-text font-theme-regular">
-          Join the best league site
+          Get started making your fantasy league
         </h2>
       </div>
+      <CreateAccountForm />
     </Layout>
   );
 }

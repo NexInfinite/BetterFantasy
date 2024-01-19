@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const LoginForm = () => (
+export const CreateAccountForm = () => (
   <div className="flex w-full justify-center mt-6 font-theme-regular">
     <div className="w-10/12 max-w-xl bg-white rounded-lg shadow-xl border-slate-100 border-solid border-2 p-10 bg-main">
 
@@ -15,15 +15,25 @@ export const LoginForm = () => (
           className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
           placeholder="email@domain.com"
           pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
-          title="Invalid Email Address"
           required="required"
+          title="Must be a valid email address"
+        />
+
+        {/* Username Input */}
+        <label htmlFor="username" className="block text-main text-lg font-bold mb-2 mt-6">
+          Username
+        </label>
+        <input
+          id="username"
+          className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
+          placeholder="your username"
+          pattern="[A-z]{3,15}$"
+          required="required"
+          title="Username must be between 3 and 15 characters"
         />
 
         {/* Password Input */}
-        <label
-          htmlFor="password"
-          className="block text-main text-lg font-bold mb-2 mt-6"
-        >
+        <label htmlFor="password" className="block text-main text-lg font-bold mb-2 mt-6">
           Password
         </label>
         <input
@@ -40,34 +50,17 @@ export const LoginForm = () => (
             className="transition-all ease-in duration-400 ring-2 ring-inset ring-main text-main font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline text-sm md:text-md hover:text-white hover:bg-main"
             type="submit"
           >
-            Sign In
+            Sign Up
           </button>
-          <a
+          <Link
             className="inline-block align-baseline underline text-xs sm:text-sm text-main hover:decoration-2"
-            href="/forgot-password"
+            href="/login"
+            scroll={false}
           >
-            Forgot Password?
-          </a>
+            Already A Member?
+          </Link>
         </div>
-
       </form> 
-
-      {/* Or */}
-      <div className="relative flex py-2 items-center">
-        <div className="flex-grow border-t border-gray-400"></div>
-        <span className="flex-shrink mx-4 text-gray-400">or</span>
-        <div className="flex-grow border-t border-gray-400"></div>
-      </div>
-
-      {/* Create Account */}
-      <div className="text-center">
-        <p>New to Better Fantasy?</p>
-        <Link href="/create-account" scroll={false}>
-          <button className="transition-all ease-in duration-400 ring-2 ring-inset ring-main text-main font-bold mt-2 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline text-sm md:text-md hover:text-white hover:bg-main">
-            Create Account
-          </button>
-        </Link>
-      </div>
     </div>
 
   </div>
