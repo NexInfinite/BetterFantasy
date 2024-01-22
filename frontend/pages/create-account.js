@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import { CreateAccountForm } from "@/components/create-account";
+import CreateAccountForm from "@/components/create-account";
 
 export default function CreateAccount() {
   return (
