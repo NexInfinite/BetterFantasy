@@ -9,9 +9,40 @@ export default function CreateAccountForm() {
   const [errors, setErrors] = useState({}); 
   const [isFormValid, setIsFormValid] = useState(false); 
 
+  function validateInputs() {
+    let errors = {};
+
+    // Email Validation
+    if (!email)
+      errors.email = "Email is required";
+    else if (!email.match("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,5}$"))
+      errors.email = "Email must be in form user@domain.com";
+
+    // Username Validation
+    if (!username)
+      errors.username = "Username is required";
+    else if (!username.match("^[A-z]{3,15}$"))
+      errors.username = "Username must be between 3 and 15 characters";
+
+    // Password 1 Validation
+    if (!password)
+      errors.password = "Password is required";
+    else if (!password.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[?!@#$%^&*_=+-]).{8,16}$"))
+      errors.password = "Password must contain at least 1 uppercase characters, 1 lower case character, 1 special characters, and be between 8 and 16 characters long";
+
+    // Password Confirm Validation
+    if (!confirmPassword)
+      errors.confirmPassword = "Please enter your password again";
+    else if (confirmPassword != password)
+      errors.confirmPassword = "Passwords do not match"
+
+    console.log(errors)
+  }
+
   async function onSubmit(event) {
     event.preventDefault();
     console.log(email, username, password, confirmPassword);
+    validateInputs();
   }
 
   return (
@@ -27,9 +58,6 @@ export default function CreateAccountForm() {
             type="text"
             className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
             placeholder="email@domain.com"
-            pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
-            required="required"
-            title="Must be a valid email address"
             onChange={(e) => setEmail(e.target.value)} 
           />
 
@@ -42,9 +70,6 @@ export default function CreateAccountForm() {
             type="text"
             className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
             placeholder="your username"
-            pattern="^[A-z]{3,15}$"
-            required="required"
-            title="Username must be between 3 and 15 characters"
             onChange={(e) => setUsername(e.target.value)} 
           />
 
@@ -59,9 +84,6 @@ export default function CreateAccountForm() {
                 type="password"
                 className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
                 placeholder="password"
-                required="required"
-                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
-                title="Password must include at least 1 uppercase character, 1 lowercase character, 1 number and 1 symbol. This must be between 8 and 16 characters"
                 onChange={(e) => setPassword(e.target.value)} 
               />
             </div>
