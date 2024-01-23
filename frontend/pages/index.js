@@ -7,7 +7,7 @@ export default function Home() {
         <h1 className="text-4xl text-main font-theme-bold sm:text-6xl">
           Home Page
         </h1>
-        <h2 className="text-m text-dark-text font-theme-regular sm:text-xl">
+        <h2 className="text-m text-dark-text font-theme-regular px-8 sm:text-xl">
           To be made
         </h2>
       </div>

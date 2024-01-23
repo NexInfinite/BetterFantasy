@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="w-full fixed inset-x-0 bottom-0 bg-footer-main rounded-t-lg flex justify-center">
       <div className="w-screen mx-0 max-w-screen-xl p-4 flex flex-wrap items-center justify-stretch lg:justify-between">
         <span className="text-sm text-light-text w-full lg:w-max text-center">
-          ©2023{" "}
+          ©{new Date().getFullYear()}{" "}
           <a
             href="https://julians.work"
             target="_blank"

@@ -8,7 +8,7 @@ export default function F1Home() {
         <h1 className="text-4xl text-main font-theme-bold sm:text-6xl">
           VALORANT FANTASY
         </h1>
-        <h2 className="text-m text-dark-text font-theme-regular sm:text-xl">
+        <h2 className="text-m text-dark-text font-theme-regular px-8 sm:text-xl">
           An Unofficial Fantasy League
         </h2>
       </div>
