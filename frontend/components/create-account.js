@@ -64,7 +64,7 @@ export default function CreateAccountForm() {
           />
 
           {/* Username Input */}
-          <label htmlFor="username" className="block text-main text-lg font-bold mb-2 mt-6">
+          <label htmlFor="username" className="block text-main text-lg font-bold mb-2 mt-2 md:mt-6">
             Username
             {"username" in errors && <span className="block text-red-900 text-xs italic font-bold md:text-sm">{errors.username}</span>}
           </label>
@@ -77,9 +77,9 @@ export default function CreateAccountForm() {
           />
 
           {/* Password Input */}
-          <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+          <div className="grid gap-x-8 grid-cols-1 md:gap-y-2 md:grid-cols-2">
             <div>
-              <label htmlFor="password" className="block text-main text-lg font-bold mb-2 mt-6">
+              <label htmlFor="password" className="block text-main text-lg font-bold mb-2 mt-2 md:mt-6">
                 Password
               </label>
               <input
@@ -90,9 +90,10 @@ export default function CreateAccountForm() {
                 onChange={(e) => setPassword(e.target.value)} 
               />
             </div>
+            {"password" in errors && <span className="block text-red-900 text-xs italic font-bold col-span-max pt-2 md:text-sm md:pt-0 md:hidden">{errors.password}</span>}
 
             <div>
-              <label htmlFor="confirm_password" className="block text-main text-lg font-bold mb-2 mt-6">
+              <label htmlFor="confirm_password" className="block text-main text-lg font-bold mb-2 mt-2 md:mt-6">
                 Confirm Password
               </label>
               <input
@@ -103,7 +104,7 @@ export default function CreateAccountForm() {
                 onChange={(e) => setConfirmPassword(e.target.value)} 
               />
             </div>
-            {"password" in errors && <span className="block text-red-900 text-xs italic font-bold col-span-2 md:text-sm">{errors.password}</span>}
+            {"password" in errors && <span className="block text-red-900 text-xs italic font-bold col-span-max pt-2 md:text-sm md:pt-0">{errors.password}</span>}
           </div>
 
           {/* Login Button/Forgot Password */}
