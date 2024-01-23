@@ -9,6 +9,8 @@ export default function CreateAccountForm() {
   const [errors, setErrors] = useState({}); 
   const [isFormValid, setIsFormValid] = useState(false); 
 
+  const inputClass = "w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm";
+
   function validateInputs() {
     let errors = {};
 
@@ -24,25 +26,24 @@ export default function CreateAccountForm() {
     else if (!username.match("^[A-z]{3,15}$"))
       errors.username = "Username must be between 3 and 15 characters";
 
-    // Password 1 Validation
+    // Password Validation
     if (!password)
       errors.password = "Password is required";
     else if (!password.match("^(?=.*[a-z])(?=.*[A-Z])(?=.*[?!@#$%^&*_=+-]).{8,16}$"))
-      errors.password = "Password must contain at least 1 uppercase characters, 1 lower case character, 1 special characters, and be between 8 and 16 characters long";
-
-    // Password Confirm Validation
-    if (!confirmPassword)
-      errors.confirmPassword = "Please enter your password again";
+      errors.password = "Password must be 8-16 characters, contain uppercase characters, and contain special characters";
+    else if (!confirmPassword)
+      errors.password = "Please enter your password again";
     else if (confirmPassword != password)
-      errors.confirmPassword = "Passwords do not match"
+      errors.password = "Passwords do not match"
 
-    console.log(errors)
+    setErrors(errors);
   }
 
   async function onSubmit(event) {
     event.preventDefault();
     console.log(email, username, password, confirmPassword);
     validateInputs();
+    console.log(errors);
   }
 
   return (
@@ -52,11 +53,12 @@ export default function CreateAccountForm() {
           {/* Email Input */}
           <label htmlFor="email" className="block text-main text-lg font-bold mb-2">
             Email
+            {"email" in errors && <span className="block text-red-900 text-xs italic font-bold md:text-sm">{errors.email}</span>}
           </label>
           <input
             id="email"
             type="text"
-            className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
+            className={inputClass + ("email" in errors && " ring-red-900 ring-4")}
             placeholder="email@domain.com"
             onChange={(e) => setEmail(e.target.value)} 
           />
@@ -64,17 +66,18 @@ export default function CreateAccountForm() {
           {/* Username Input */}
           <label htmlFor="username" className="block text-main text-lg font-bold mb-2 mt-6">
             Username
+            {"username" in errors && <span className="block text-red-900 text-xs italic font-bold md:text-sm">{errors.username}</span>}
           </label>
           <input
             id="username"
             type="text"
-            className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
+            className={inputClass + ("username" in errors && " ring-red-900 ring-4")}
             placeholder="your username"
             onChange={(e) => setUsername(e.target.value)} 
           />
 
           {/* Password Input */}
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-2">
             <div>
               <label htmlFor="password" className="block text-main text-lg font-bold mb-2 mt-6">
                 Password
@@ -82,7 +85,7 @@ export default function CreateAccountForm() {
               <input
                 id="password"
                 type="password"
-                className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
+                className={inputClass + ("password" in errors && " ring-red-900 ring-4")}
                 placeholder="password"
                 onChange={(e) => setPassword(e.target.value)} 
               />
@@ -95,14 +98,12 @@ export default function CreateAccountForm() {
               <input
                 id="confirm_password"
                 type="password"
-                className="w-full text-sm appearance-none rounded-md ring-2 ring-inset ring-main bg-white py-2 px-3 leading-tight text-main focus:outline-0 italic placeholder:text-neutral-400 placeholder:text-sm"
+                className={inputClass + ("password" in errors && " ring-red-900 ring-4")}
                 placeholder="password (again)"
-                required="required"
-                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"
-                title="Password must include at least 1 uppercase character, 1 lowercase character, 1 number and 1 symbol. This must be between 8 and 16 characters"
                 onChange={(e) => setConfirmPassword(e.target.value)} 
               />
             </div>
+            {"password" in errors && <span className="block text-red-900 text-xs italic font-bold col-span-2 md:text-sm">{errors.password}</span>}
           </div>
 
           {/* Login Button/Forgot Password */}
