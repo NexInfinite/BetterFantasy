@@ -6,8 +6,10 @@ export const changeTheme = (theme) => {
     // Unhide
     let loadingDiv = document.getElementById("loading-screen");
     let loadingBar = document.getElementById("loading-bar");
+    let mainScreen = document.getElementById("main");
     loadingDiv.hidden = false;
     loadingDiv.style.opacity = 100;
+    mainScreen.hidden = true
 
     // Wait a bit and slowly move bar up
     setTimeout(
@@ -37,7 +39,7 @@ export const changeTheme = (theme) => {
       loadingBar.style.width = "100%";
     }, 900);
     setTimeout(function () {
-      loadingDiv.style.opacity = 0;
+      loadingDiv.style.opacity = 0; mainScreen.hidden = false;
     }, 1000);
     setTimeout(function () {
       loadingDiv.hidden = true;

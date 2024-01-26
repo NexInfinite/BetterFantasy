@@ -17,7 +17,7 @@ export default function MyApp({ Component, pageProps }) {
       <Script src="/themes.js" />
 
       <Loading />
-      <div className="transition-colors duration-150 ease-in-out">
+      <div id="main" className="transition-colors duration-150 ease-in-out">
         <NavBar />
         <AnimatePresence
           mode="wait"
