@@ -41,9 +41,13 @@ export default function CreateAccountForm() {
 
   async function onSubmit(event) {
     event.preventDefault();
-    console.log(email, username, password, confirmPassword);
+
+    // Validate inputs and send a request if no errors, update errors if request not valid
     validateInputs();
-    console.log(errors);
+    if (Object.keys(errors).length === 0) {  // This is the main reason i hate js
+      const response = await fetch(`${process.env.API_ADDR}/create-account`);
+      console.log(response);
+    }
   }
 
   return (
